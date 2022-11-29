@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/camil/Desktop/music.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="946"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainArtist"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">-- Query 1 : Display the CDs that came out in 1998. (line count: 35)
+SELECT * FROM Disc
+ WHERE Year=1998;
+
+-- Query 2 : Display the CDs published in 21st century. (line count: 142)
+SELECT * FROM Disc
+ WHERE Year&gt;2000;
+
+-- Query 3 : Display the CDs that came out in the 90s. (line count: 291)
+SELECT * FROM Disc
+ WHERE Year BETWEEN 1990 AND 1999;
+
+-- Query 4 : Display the different names of states of CDs (without repretition). (line count: 4)
+SELECT DISTINCT State FROM Disc;
+
+-- Query 5 : Find the titles of all damaged CDs. (line count: 170)
+SELECT Title FROM Disc
+ WHERE State='Damaged'
+
+-- Query 6 : Find cheap used CDs (price below 11). Order the result by the price (ascending). (line count: 30)
+SELECT * FROM Disc
+ WHERE State='Used' AND Price&lt;11
+ ORDER BY Price;
+
+-- Query 7 : Find CDs that came out either in 1990 or 1995 and whose price is between 10 and 15. (line count: 26)
+SELECT * FROM Disc
+ WHERE (Year=1990 OR Year=1995) 
+   AND (Price BETWEEN 10 AND 15);
+ 
+
+-- Query 8 : Find the number of CDs that came out in the 80s and their price is between 12 and 14. (line count: 42)
+SELECT COUNT(*) FROM Disc
+ WHERE (Year BETWEEN 1980 AND 1989)
+   AND (Price BETWEEN 12 AND 14);
+
+-- Query 9 : Find the total of prices of destroyed CD. (the answer is 627.97) (line count: 1)
+SELECT SUM(price) FROM Disc
+ WHERE State='Destroyed';
+
+-- Query 10 : Find CD by ’The Beatles’. (line count: 6)
+SELECT * FROM Disc
+ WHERE Artist_ID=
+	   (SELECT ID FROM Artist
+		 WHERE Name='The Beatles'
+         LIMIT 1);
+
+-- Query 11 : Find CDs by ’AC DC’ that came out in the 90s. (line count: 4)
+SELECT * FROM Disc
+ WHERE Year BETWEEN 1990 AND 1999
+   AND Artist_ID=
+	   (SELECT ID FROM Artist
+		 WHERE Name='AC DC'
+         LIMIT 1);
+
+-- Query 12 : Find artists names who had a CD in 1991. (line count: 25)
+SELECT DISTINCT Name 
+  FROM Artist JOIN Disc ON ID=Artist_ID
+ WHERE year=1991;
+
+-- Query 13 : Find the sum of prices of all CD by Georges Brassens. (the answer is 200.73) (line count: 1)
+SELECT SUM(price) FROM Disc
+ WHERE Artist_ID=
+	   (SELECT ID FROM Artist
+		 WHERE Name='Georges Brassens'
+         LIMIT 1);
+
+-- Query 14 : Find titles of song of the Rock genre. (line count: 5504)
+SELECT Title FROM Song
+ WHERE Genre_ID=
+	   (SELECT ID FROM Genre
+		 WHERE Name='Rock'
+         LIMIT 1);
+ 
+-- Query 15 : List titles of songs whose genre description uses the word ’afric’. (line count: 334)
+SELECT Title
+  FROM Song JOIN Genre ON Genre_ID=Genre.ID
+ WHERE Description LIKE '%afric%';
+
+-- Query 16 : Find the number of folk songs whose lyrics are not covered by copyright. (the answer is 124) (line count: 1)
+SELECT COUNT(*)
+  FROM Song JOIN Genre ON Genre_ID=Genre.ID
+ WHERE Free_lyrics=1
+   AND Name='Folk';
+
+-- Query 17 : Find song titles written by Jacques Brel. (line count: 134)
+SELECT title
+  FROM Song JOIN (Artist JOIN Written ON Artist.ID=Artist_ID) ON Song.ID=Song_ID
+ WHERE Name='Jacques Brel';
+
+-- Query 18 : Find artists who have written the song ’Anybody Seen My Baby?’. (line count: 2)
+SELECT Name
+  FROM Song JOIN (Artist JOIN Written ON Artist.ID=Artist_ID) ON Song.ID=Song_ID
+ WHERE Title='Anybody Seen My Baby?';
+
+-- Query 19 : find the number of CDs with songs written by Mick Jagger. (the answer is 54) (line count: 1)
+SELECT COUNT(DISTINCT Disc.CDDB)
+  FROM ((Song JOIN (Artist JOIN Written ON Artist.ID=Artist_ID) ON Song.ID=Written.Song_ID) JOIN Listing ON Song.ID=Listing.Song_ID) JOIN Disc ON Listing.CDDB=Disc.CDDB
+ WHERE Name='Mick Jagger';
+
+/* Become now harder */
+/*Si vous avez des requêtes imbriquées, il faut utiliser un WITH ! */
+
+-- Query 20 : Find the song list on the CD A Night at the Opera, in the order of their position. (line count: 12)
+SELECT Song.Title
+  FROM (Song JOIN Listing ON Song.ID=Song_ID) JOIN Disc ON Listing.CDDB=Disc.CDDB
+ WHERE Disc.Title='A Night at the Opera'
+ ORDER BY Pos;
+
+-- Query 21 : Find name of artists who have not written a single song. (line count: 506)
+SELECT Name FROM Artist
+ WHERE ID NOT IN (SELECT DISTINCT Artist_ID FROM Written);
+
+-- Query 22 : List songs performed by Lenny Kravitz that are present on David Bowie’s CDs. (line count: 1)
+SELECT Song.Title
+  FROM (Song JOIN Listing ON Song.ID=Listing.Song_ID) JOIN Disc ON Listing.CDDB=Disc.CDDB
+ WHERE Listing.Artist_ID=
+       (SELECT ID FROM Artist
+		 WHERE Name='Lenny Kravitz'
+         LIMIT 1)
+   AND Disc.Artist_ID=
+       (SELECT ID FROM Artist
+		 WHERE Name='David Bowie'
+         LIMIT 1);
+
+-- Query 23 : Find CDs that contain at least one song performed by an artist different from the (main) artist of the disc. (line count: 37)
+SELECT DISTINCT Disc.Title
+  FROM Disc JOIN Listing ON Disc.CDDB=Listing.CDDB
+ WHERE Listing.Artist_ID!=Disc.Artist_ID;
+
+-- Query 24 : Find CDs that contain at least one song written by an artist different from the (main) artist of the CD. (line count: 83)
+SELECT DISTINCT Disc.Title
+  FROM (Written JOIN Listing ON Written.Song_ID=Listing.Song_ID) JOIN Disc ON Listing.CDDB=Disc.CDDB
+ WHERE Written.Artist_ID!=Disc.Artist_ID;
+
+-- Query 25 : List the number and the average price of CD for every different state. (line count: 4)
+SELECT State, COUNT(*) Amout, AVG(Price) Average_Price FROM Disc
+ GROUP BY State;
+
+-- Query 26 : For every artist find the number of their CDs. Display the results in the descending order of the number of CDs (line count: 273)
+SELECT Name, COUNT(*) Amout_of_CDs
+  FROM Disc JOIN Artist ON Disc.Artist_ID=ID
+ GROUP BY Name
+ ORDER BY COUNT(*) DESC;
+
+-- Query 27 : For every CD list its title and the number of songs it contains. display only CD with at least 10 songs (line count: 688)
+SELECT title, COUNT(*) Number_of_songs
+  FROM Listing JOIN Disc ON Listing.CDDB=Disc.CDDB
+ GROUP BY Disc.CDDB
+ HAVING COUNT(*) &gt; 9;
+
+-- Query 28 : For every genre find the number of CDs that contain a song of this genre. Mind not to count the same CD more than once. Display genres with more than 50 songs (line count: 4)
+SELECT Genre.name, COUNT(DISTINCT Disc.Title) Number_of_CDs
+  FROM ((Listing JOIN Disc ON Listing.CDDB=Disc.CDDB) JOIN Song ON Song_ID=Song.ID) JOIN Genre ON Genre_ID=Genre.ID
+ GROUP BY Genre.ID
+ HAVING COUNT(DISTINCT Disc.Title) &gt; 50;
+
+-- Query 29 : List the artists in the descending order of the average price of their CDs. List only those artists who have at least 4 CDs for which the average CD price is above 12. (line count: 61)
+SELECT Name, AVG(price) Average_CD_price
+  FROM Disc JOIN Artist ON Artist_ID=ID
+ GROUP BY Name
+HAVING COUNT(*) &gt; 3 AND AVG(price) &gt; 12
+ ORDER BY AVG(price) DESC;
+
+/* Questions Bonus (Optionnelles) */
+
+-- Query 30 : Find CD whose list of songs is potentially incomplete. (Hint: compare the number of songs with the position of the last song). (line count: 24)
+SELECT *
+  FROM Listing JOIN Disc ON Listing.CDDB=Disc.CDDB
+ GROUP BY Disc.CDDB
+HAVING COUNT(*) != MAX(pos);
+
+-- Query 31 : Find frequent collaborators. Any pair of artists who have performed a song on the same CD are
+-- collaborators. If there are at least 2 CDs, then this pair are frequent collaborators. (there is only 5 such pairs)
+-- (line count: 10)
+WITH 
+collabs AS
+(SELECT x.Artist_ID, 
+	   (SELECT y.Artist_ID FROM Listing y
+	     WHERE y.CDDB=x.CDDB AND x.Artist_ID != y.Artist_ID) Collab_ID,
+		x.CDDB
+   FROM Listing x),
+
+collabs2 AS
+(SELECT *, ROW_NUMBER() OVER(PARTITION BY Artist_ID,Collab_ID,CDDB ORDER BY Artist_ID) AS DuplicateCount
+   FROM collabs
+  WHERE Collab_ID IS NOT NULL),
+
+collaborations AS
+(SELECT Artist_ID, Collab_ID FROM collabs2
+  WHERE DuplicateCount=1)
+
+SELECT * FROM collaborations x
+ GROUP BY x.Artist_ID
+HAVING (SELECT COUNT(*) FROM collaborations y
+	     WHERE y.Artist_ID=x.Artist_ID
+		   AND y.Collab_ID=x.Collab_ID) &gt; 1;
+
+--Correction
+SELECT Distinct l2.CDDB, l1.Artist_ID AS artist1, l2.Artist_ID AS artist2, count(*) as nb
+FROM Listing l1
+JOIN Listing l2
+ON l1.CDDB = l2.CDDB AND l1.Song_ID = l2.Song_ID
+WHERE artist1 != artist2
+GROUP BY l1.CDDB, l1.Artist_ID, L2.Artist_ID
+HAVING nb &gt; 1;</sql><current_tab id="0"/></tab_sql></sqlb_project>

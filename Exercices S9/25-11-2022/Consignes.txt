@@ -1,0 +1,43 @@
+Ouvrer le fichier .sql dans votre éditeur de code.
+
+A partir de ce fichier, recréer le modèle de données de cette BDD. (vous savez le schéma que je vous avez demandé de représenter
+lors des précédents exos sur les BDD).
+Pour ce, vous utiliserez cette outil: https://app.diagrams.net/
+
+
+Vous n'oublierez pas de mentionner:
+- le typage
+- les contraintes (si présence de contraintes)
+- la(es) clé(s) primaire(s)
+- les clés étrangères (si présence de clé étrangère).
+- les liaisons entre les tables
+
+
+Exercice 1: 
+Créer la table dans MySQL associée au schéma fourni dans le pdf.
+Utiliser les bons typages, mettre les contraintes lorsque nécessaires et faire apparaître les clés étrangères.
+Insérer les données indiquées dans le schéma
+1. Ajouter le client suivant: ("Thomas", "Andurand", "21, rue des affections", 33000, "Bordeaux")
+2. Créer une colonne dans la table client intitulée "Television". 
+3. Supprimer la colonne associée au Code Postale
+4. Corriger l'information suivante: Michel Botas est en fait une femme (Michelle Botas)
+5. Supprimer la ligne dans la table 'locations' affiche une durée de film de 5h
+6. Supprimer la table Locations. Peut-on encore faire une jointure entre Clients et Films ?
+
+Exercice Bonus:
+Reprener le premier fichier world.sql précédent.
+Ouvrer MySQL, importez-le et faîtes une requête très simple pour voir si tout fonctionne.
+Vous pouvez obtenir un schéma de données automatiquement généré par MySQL. Le faire, et comparer celui de MySQL avec le votre
+
+
+1. https://openclassrooms.com/fr/courses/6938711-modelisez-vos-bases-de-donnees/7501478-decomposez-la-modelisation-de-votre-bdd-en-trois-etapes-cles
+
+2. https://openclassrooms.com/fr/courses/6938711-modelisez-vos-bases-de-donnees/7501739-tenez-compte-de-la-redondance-dans-votre-modelisation
+
+3. https://openclassrooms.com/fr/courses/6938711-modelisez-vos-bases-de-donnees/7504979-determinez-vos-cles-primaires
+
+4. https://openclassrooms.com/fr/courses/6938711-modelisez-vos-bases-de-donnees/7506536-creez-du-lien-entre-vos-tables-avec-les-cles-etrangeres
+
+5. https://openclassrooms.com/fr/courses/4449026-initiez-vous-a-lalgebre-relationnelle-avec-le-langage-sql/4559086-imbriquez-des-requetes-avec-in-all-any-et-exists
+
+6. https://openclassrooms.com/fr/courses/4449026-initiez-vous-a-lalgebre-relationnelle-avec-le-langage-sql/4563021-apprehendez-le-fenetrage-avec-over-et-partition-by
