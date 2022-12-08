@@ -1,0 +1,7 @@
+setup.py
+scalerlinearregression.egg-info/PKG-INFO
+scalerlinearregression.egg-info/SOURCES.txt
+scalerlinearregression.egg-info/dependency_links.txt
+scalerlinearregression.egg-info/requires.txt
+scalerlinearregression.egg-info/top_level.txt
+scripts/scaler_features

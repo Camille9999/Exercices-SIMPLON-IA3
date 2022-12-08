@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: scalerlinearregression
+Version: 1.0
+Summary: Contains functions to convert categorical data into ordinal data and scale numerical data in order to apply a linear regression.
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
