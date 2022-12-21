@@ -94,7 +94,7 @@ DROP COLUMN `cpcli`;
 -- 4. Corriger l'information suivante: Michel Botas est en fait une femme (Michelle Botas)
 
 UPDATE `clients`
-SET `prenomcli`='Michelle' 
+SET `prenomcli`='Michelle'
 WHERE `codecli`=9;
 
 
@@ -107,3 +107,6 @@ WHERE `duree`=5;
 -- 6. Supprimer la table Locations. Peut-on encore faire une jointure entre Clients et Films ?
 
 DROP TABLE IF EXISTS `locations`;
+
+-- Il n'y a pas de clé entre les tables Clients et Films, la table `locations` permettait de faire le lien entre les deux.
+-- On ne peut donc plus faire de jointure entre Clients et Films.
