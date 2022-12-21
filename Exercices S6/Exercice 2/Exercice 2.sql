@@ -1,3 +1,5 @@
+USE Chinook;
+
 -- QUERY 1: Explore PlaylistTrack (line count : 8715)
 SELECT * FROM playlist_track;
 
@@ -13,12 +15,12 @@ EXCEPT
 SELECT UnitPrice FROM tracks;
 
 -- QUERY 4: Identify the rows where either TrackId or PlaylistId is NULL (PlaylistTrack table).
-SELECT * FROM playlist_track 
- WHERE PlaylistId IS NULL 
+SELECT * FROM playlist_track
+ WHERE PlaylistId IS NULL
     OR TrackId IS NULL;
 
 -- QUERY 5: Group the songs according to the different types of media (use a count) (line count : 5)
-SELECT media_types.name, COUNT(*) 
+SELECT media_types.name, COUNT(*)
   FROM tracks JOIN media_types ON tracks.MediaTypeId=media_types.MediaTypeId
  GROUP BY tracks.MediaTypeId;
 
@@ -85,4 +87,3 @@ SELECT 'artists', SUM(ArtistId) FROM artists;
 -- QUERY 17: Which playlist or playlists have no tracks? (line count : 4)
 SELECT name FROM playlists
  WHERE PlaylistId NOT IN (SELECT PlaylistId FROM playlist_track);
- 

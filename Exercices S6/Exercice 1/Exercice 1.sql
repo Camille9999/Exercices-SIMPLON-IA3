@@ -1,6 +1,8 @@
+Use Chinook;
+
 -- QUERY 1
 -- Exploration of the Customer table in the Chinook database
-SELECT * FROM customers; 
+SELECT * FROM customers;
 
 -- QUERY 2
 -- Extract CustomerId, Company and City data from the customer table in the Chinook database
@@ -13,7 +15,7 @@ SELECT LastName, FirstName, Email, City FROM customers;
 -- QUERY 4
 -- Extract the Lastname, Firstname, email, city and country from the same table
 -- and select only the country starting with &quot;AUSTR&quot;
--- What do you observe? 
+-- What do you observe?
 SELECT LastName, FirstName, Email, City, Country FROM customers WHERE Country LIKE 'AUSTR%';
 
 -- QUERY 5
@@ -35,7 +37,7 @@ SELECT LastName, FirstName, Email, City, Country FROM customers WHERE Country IN
 
 
 -- QUERY 9
--- Count the number of clients you have in USA 
+-- Count the number of clients you have in USA
 -- Count the number of clients you have in Canada
 SELECT COUNT(CustomerId) FROM customers WHERE Country IN ('USA', 'Canada') GROUP BY Country;
 
@@ -46,10 +48,10 @@ SELECT COUNT(*) FROM customers WHERE City='Berlin';
 
 SELECT COUNT(*) FROM customers WHERE City='Paris';
 
- 
+
 
 -- QUERY 11
--- How many states are there and how many cities per state ? 
+-- How many states are there and how many cities per state ?
 SELECT COUNT(DISTINCT State) FROM customers;
 
 SELECT State, COUNT(DISTINCT City) FROM customers GROUP BY State;
@@ -58,13 +60,13 @@ SELECT State, COUNT(DISTINCT City) FROM customers GROUP BY State;
 -- Count the number of clients per country and order them from the largest to the smallest.
 SELECT Country, COUNT(*) FROM customers GROUP BY Country ORDER BY COUNT(*) DESC
 
--------------------------------- 
--- Let's change table ! 
+--------------------------------
+-- Let's change table !
 -- Explore the Track table
 
 
 
-SELECT * FROM tracks; 
+SELECT * FROM tracks;
 
 
 
@@ -83,7 +85,7 @@ SELECT * FROM tracks WHERE name LIKE '%you';
 SELECT * FROM tracks WHERE Milliseconds BETWEEN 230000 AND 240000;
 
 -- QUERY 15
--- Extract data from the top 10 long songs which cost 0.99 
+-- Extract data from the top 10 long songs which cost 0.99
 SELECT * FROM tracks WHERE UnitPrice=0.99 ORDER BY Milliseconds DESC LIMIT 10;
 
 -- QUERY 16
@@ -117,7 +119,7 @@ ORDER BY COUNT(*) DESC;
 
 
 -- QUERY 20 / Review
--- Extract the top 10 composers order from the longest average length of tracks and count the number of album the composer appear in 
+-- Extract the top 10 composers order from the longest average length of tracks and count the number of album the composer appear in
 SELECT Composer, COUNT(DISTINCT AlbumId) FROM tracks WHERE Composer IS NOT NULL GROUP BY Composer ORDER BY AVG(Milliseconds) DESC LIMIT 10;
 
 -- Bonus:
@@ -137,4 +139,3 @@ SELECT SUM(ifnull(Composer, 1)) FROM tracks;
 -- You will see that the first one on the top is no-one
 -- How is that possible? Comment here in 1 sentence
 SELECT DISTINCT Composer FROM tracks WHERE Composer IS NOT NULL ORDER BY (SELECT COUNT(*) FROM tracks x WHERE x.Composer=Composer) LIMIT 10;
-
