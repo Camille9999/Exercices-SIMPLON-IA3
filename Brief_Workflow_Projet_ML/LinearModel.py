@@ -20,6 +20,8 @@ class ModeleLineaire():
                  cat_transformer=OneHotEncoder(handle_unknown='ignore', drop='first'),
                  test_size=0.3):
 
+        self.X = X
+        self.y = y
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=test_size)
 
         num_cols = X._get_numeric_data().columns.values.tolist()
@@ -33,16 +35,18 @@ class ModeleLineaire():
             ('num_transformer', num_pipeline, num_cols),
             ('cat_transformer', cat_transformer, cat_cols)])
 
-        pipeline = make_pipeline(self.preprocessor, LinearRegression())
+        self.pipeline = make_pipeline(self.preprocessor, LinearRegression())
 
-        self.pipe = pipeline.fit(self.X_train, self.y_train)
-
+        self.pipe = self.pipeline.fit(self.X_train, self.y_train)
 
     def show_scores(self, cv=5, scoring='r2'):
         for i, r2 in enumerate(cross_val_score(self.pipe, self.X_train, self.y_train, cv=cv, scoring=scoring)):
-            print(f'{i+1}. r2 = {round(r2,2)}')
-        print('Moyenne des r2 :', round(cross_val_score(self.pipe, self.X_train, self.y_train, cv=cv, scoring=scoring).mean(),2))
+            (R2 := array(r2))
+            print(f' {i+1}. r2 = {round(r2,2)}')
+        print('Moyenne des r2 :', round(R2.mean(),2))
         print('Score du test :', round(self.pipe.score(self.X_test, self.y_test),2))
+
+    def finalize(self): return self.pipeline.fit(self.X, self.y)
 
     def tts(self): return self.X_train, self.X_test, self.y_train, self.y_test
 
