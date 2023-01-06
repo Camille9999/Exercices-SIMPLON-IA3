@@ -12,6 +12,7 @@ results = []
 c = 1
 
 if option:
+
     while True:
         page = requests.get(f"https://swapi.dev/api/{option.lower()}/?page={c}").json()
         results += page['results']
