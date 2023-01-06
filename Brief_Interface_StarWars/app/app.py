@@ -42,7 +42,7 @@ if option:
         if keyword.lower() in result[category].lower():
             selected.append(result)
 
-    st.write(f'##### {len(selected)} results')
+    st.write(f'#### {len(selected)} results')
     st.write('\n')
 
     for item in selected:
