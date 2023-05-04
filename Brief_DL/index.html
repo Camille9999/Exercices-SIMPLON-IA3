@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Classifier</title>
+  </head>
+  <body>
+    <h1>Image Classifier</h1>
+    <form id="image-form">
+      <label>Image:
+        <input type="file" name="image" id="image">
+      </label>
+      <button type="submit">Classify</button>
+    </form>
+    <div id="result"></div>
+    <script>
+      const form = document.getElementById("image-form");
+      const resultDiv = document.getElementById("result");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        resultDiv.innerHTML = "Classifying...";
+
+        const formData = new FormData(form);
+        const response = await fetch("http://localhost:8000/predict", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+        resultDiv.innerHTML = `Classified as ${data.label}`;
+      });
+    </script>
+  </body>
+</html>
