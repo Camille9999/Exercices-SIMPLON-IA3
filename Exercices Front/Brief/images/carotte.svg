@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="112px" height="201px" viewBox="0 0 112 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>carotte</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="105.159587%" y1="50%" x2="-5.13558915%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#F17F30" offset="0%"></stop>
+            <stop stop-color="#ED711D" offset="97%"></stop>
+        </linearGradient>
+        <linearGradient x1="8421.5611%" y1="102.96184%" x2="8421.5611%" y2="-2.96184047%" id="linearGradient-2">
+            <stop stop-color="#F17F30" offset="0%"></stop>
+            <stop stop-color="#ED711D" offset="97%"></stop>
+        </linearGradient>
+        <linearGradient x1="3.06170551%" y1="60.4733584%" x2="93.7724755%" y2="27.537136%" id="linearGradient-3">
+            <stop stop-color="#177B48" offset="0%"></stop>
+            <stop stop-color="#159658" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="44.3572991%" y1="91.1598419%" x2="55.7747803%" y2="7.27284407%" id="linearGradient-4">
+            <stop stop-color="#177B48" offset="0%"></stop>
+            <stop stop-color="#159658" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="23.5032328%" y1="97.7517177%" x2="67.9845034%" y2="17.2128186%" id="linearGradient-5">
+            <stop stop-color="#177B48" offset="0%"></stop>
+            <stop stop-color="#177F4A" offset="38%"></stop>
+            <stop stop-color="#168C52" offset="78%"></stop>
+            <stop stop-color="#159658" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="34.4767616%" y1="89.4196064%" x2="58.4170057%" y2="8.5019884%" id="linearGradient-6">
+            <stop stop-color="#F17F30" offset="0%"></stop>
+            <stop stop-color="#F7A230" offset="87%"></stop>
+            <stop stop-color="#F8A537" offset="89%"></stop>
+            <stop stop-color="#FCAC48" offset="100%"></stop>
+        </linearGradient>
+        <path d="M44.9132948,0.924720755 C50.4208092,2.06229301 74.3560694,10.062293 65.4728324,39.5050676 C56.5895954,68.9478421 40.0947977,127.574432 22.3283237,131.125877 C4.56184971,134.677322 1.51445087,89.2484202 0.746820809,80.3466861 C-0.0208092486,71.444952 -6.09710983,-9.49840063 44.9132948,0.924720755 Z" id="path-7"></path>
+    </defs>
+    <g id="Yuka---Site-Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.0-Accueil-mob" transform="translate(-238.000000, -442.000000)">
+            <g id="Bons-choix" transform="translate(9.000000, 83.000000)">
+                <g id="illu-bons-choix" transform="translate(0.000000, 240.000000)">
+                    <g id="carotte" transform="translate(231.200000, 119.703817)">
+                        <ellipse id="Oval" fill="#D8E7EA" fill-rule="nonzero" cx="61.0404624" cy="195.773639" rx="34.6820809" ry="4.49479769"></ellipse>
+                        <path d="M61.2254335,157.553986 C61.2254335,157.553986 66.3676301,177.350518 75.3109827,193.530865 C75.3109827,193.530865 77.8312139,191.301963 80.4947977,189.01757" id="Path" stroke="url(#linearGradient-1)" stroke-width="2.63601533" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <polyline id="Path" stroke="url(#linearGradient-2)" stroke-width="2.63601533" stroke-linecap="round" stroke-linejoin="round" points="40.6705202 159.963235 40.6705202 193.530865 33.4427746 193.530865"></polyline>
+                        <path d="M49.2439306,117.803697 C41.4104046,125.100807 20.5734104,122.229131 -3.55271368e-15,105.660344" id="Path" stroke="#E87B30" stroke-width="2.63601533" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M72.7028902,42.8904023 C72.7028902,42.8904023 90.8069364,49.2672809 105.040462,35.1724832 C114.178035,25.7158358 108.050867,22.0487838 100,23.5886682 C91.9491329,25.1285526 76.9387283,35.8337549 72.7768786,40.9435815 C72.2722004,41.484113 72.240694,42.3131249 72.7028902,42.8904023 L72.7028902,42.8904023 Z" id="Path" fill="url(#linearGradient-3)" fill-rule="nonzero"></path>
+                        <path d="M73.100578,41.8036971 C73.100578,41.8036971 59.3248555,30.136645 63.4265896,10.5435815 C66.3815029,-2.26104282 72.2127168,0.864968741 74.9271676,8.43953521 C77.6416185,16.0141017 76.5595376,34.4094774 74.5895954,40.6799976 C74.4567655,41.3821721 73.8122563,41.8685563 73.100578,41.8036971 Z" id="Path" fill="url(#linearGradient-4)" fill-rule="nonzero"></path>
+                        <path d="M70.9872832,44.0464716 C70.9872832,44.0464716 93.1098266,36.7169919 96.3052023,12.6013849 C98.0485549,-3.26913531 89.4427746,-2.23329716 82.8578035,5.22566238 C76.2728324,12.6846219 69.8127168,34.1273965 69.6092486,42.1458936 C69.5389458,43.0320311 70.1231949,43.8378245 70.9872832,44.0464716 L70.9872832,44.0464716 Z" id="Path" fill="url(#linearGradient-5)" fill-rule="nonzero"></path>
+                        <path d="M69.983815,123.574795 C86.783815,137.447628 77.8127168,168.95283 77.8127168,168.95283" id="Path" stroke="#F17F30" stroke-width="2.63601533" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <g id="Group" transform="translate(29.255491, 36.596895)">
+                            <mask id="mask-8" fill="white">
+                                <use xlink:href="#path-7"></use>
+                            </mask>
+                            <use id="Mask" fill="url(#linearGradient-6)" fill-rule="nonzero" xlink:href="#path-7"></use>
+                            <path d="M29.7410405,33.8218306 C29.5817868,33.0494161 29.003078,32.4314122 28.2427746,32.2218306 C27.4660861,31.9710995 26.6147109,32.2075926 26.0786127,32.8229867" id="Path" stroke="#4C3628" stroke-width="1.83908046" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-8)"></path>
+                            <path d="M19.2439306,30.6819462 C19.1682683,29.9051962 18.6132317,29.2595036 17.8566474,29.0680734 C17.041435,28.8403421 16.1669424,29.0762599 15.5768786,29.6831023" id="Path" stroke="#4C3628" stroke-width="1.83908046" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-8)"></path>
+                            <path d="M24.5479769,41.3131601 C22.55719,42.1671213 20.3074293,42.1887696 18.300578,41.3732757 C15.0265896,39.9859924 14.7953757,37.7987092 14.7953757,37.7987092" id="Path" stroke="#4C3628" stroke-width="1.83908046" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-8)"></path>
+                            <path d="M79.2208092,20.5963971 C76.1465239,22.331252 72.8476042,23.6337028 69.417341,24.4669173 C65.7717665,25.338679 62.0219906,25.6951334 58.2774566,25.5258768" id="Path" stroke="#F9B75C" stroke-width="0.61302682" mask="url(#mask-8)"></path>
+                            <path d="M65.6023121,47.9536225 C65.6023121,47.9536225 59.0127168,53.3409057 41.5884393,53.6877265" id="Path" stroke="#F9B75C" stroke-width="0.61302682" mask="url(#mask-8)"></path>
+                            <path d="M19.2439306,61.3778999 C18.6520231,61.3778999 5.8982659,62.7096919 -2,54.1409057" id="Path" stroke="#F9B75C" stroke-width="0.61302682" mask="url(#mask-8)"></path>
+                            <path d="M13.3387283,97.4241427 C13.3387283,97.4241427 3.73872832,96.7906167 0.603468208,92.0553566" id="Path" stroke="#F9B75C" stroke-width="0.61302682" mask="url(#mask-8)"></path>
+                            <path d="M54.2404624,79.2923508 C54.2404624,79.2923508 52.9919075,82.1501543 46.2728324,84.0738537 C43.6378633,84.8053522 40.9360337,85.2701165 38.2080925,85.4611369" id="Path" stroke="#F9B75C" stroke-width="0.61302682" mask="url(#mask-8)"></path>
+                            <path d="M43.6138728,107.394085 C43.6138728,107.394085 39.9144509,112.184836 33.7872832,112.67501" id="Path" stroke="#F9B75C" stroke-width="0.61302682" mask="url(#mask-8)"></path>
+                            <path d="M15.0312139,118.464605 C15.0312139,118.464605 8.32138728,118.08079 4.85780347,113.646108" id="Path" stroke="#F9B75C" stroke-width="0.61302682" mask="url(#mask-8)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
